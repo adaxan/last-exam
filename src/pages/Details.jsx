@@ -82,7 +82,7 @@ function Details() {
         <div className="flex gap-3 mt-4 md:mt-0">
           <button
             onClick={handleEdit}
-            className="px-8 py-3 rounded-3xl bg-gray-100 hover:bg-gray-200"
+            className="px-8 py-3 rounded-3xl bg-gray-100 hover:bg-gray-200 "
           >
             Edit
           </button>

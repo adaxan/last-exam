@@ -14,6 +14,11 @@ function Home() {
   const { cards } = useCard();
   const [filter, setFilter] = useState("");
   const [filtered, setFiltered] = useState(cards);
+  // const [theme, setTheme] = useState(getTheme());
+
+  function getTheme() {
+    return localStorage.getItem("theme") === "dark" ? "dark" : "light";
+  }
 
   const addressRef = useRef();
   const cityRef = useRef();
@@ -214,15 +219,15 @@ function Home() {
       setFiltered(filteredInvoice);
     }
   }
-  
+
   return (
-    <div className="relative flex flex-col items-center p-10 bg-gray-50 min-h-screen">
+    <div className="relative flex flex-col items-center p-10 bg-gray-50 min-h-screen dark:bg-black ">
       <Toaster />
       <motion.div
         initial={{ x: "-100%" }}
         animate={{ x: isOpen ? "0%" : "-100%" }}
         transition={{ duration: 0.4 }}
-        className={`fixed top-0 left-[80px] h-full w-1/2  bg-white shadow-2xl p-8 z-50 overflow-y-auto
+        className={`fixed top-0 left-[80px] h-full w-1/2  bg-white shadow-2xl p-8 z-50 overflow-y-auto dark:bg-black
           ${isOpen ? "visible" : "invisible"}`}
       >
         <h2 className="text-2xl font-bold text-gray-900">New Invoice</h2>
